@@ -60,13 +60,6 @@ reports/     outputs worth keeping, never raw data
 
 Folders other than `checks/` and `reports/` are created when their first file goes in.
 
-## Conventions
-
-- Data paths come from the `--out` argument, or the `LANL_OUT` environment variable in new code. Never hard-code a local path.
-- Never commit data. Parquet and `.gz` files are ignored, but check `git status` before each commit.
-- One branch per task, named `<your-name>/<task>` (for example `yourname/cleaning`), merged into `main` through a pull request.
-- Commit messages in English, imperative mood: "Add cleaning rules for machine accounts".
-
 ## Reports
 
 `reports/data_check/` has the outputs of the run on 19–20 Nov 2026 over all 58 days.
