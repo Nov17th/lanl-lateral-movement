@@ -1,0 +1,23 @@
+# data and generated files
+*.gz
+*.parquet
+data/
+out/
+.duckdb_tmp/
+
+# python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# environments and editors
+.env
+.venv/
+venv/
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
