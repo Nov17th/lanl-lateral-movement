@@ -33,6 +33,8 @@ python checks/lanl_check.py full    --data-dir <gz> --out <out>
 python checks/lanl_probe.py       --out <out>
 python checks/lanl_followup.py    --out <out>
 python checks/lanl_lead_check.py  --out <out>
+python checks/lanl_check.py convert --only proc --data-dir <gz> --out <out>
+python checks/lanl_proc_check.py  --out <out>
 ```
 
 | Script | What it checks | Writes |
@@ -43,8 +45,10 @@ python checks/lanl_lead_check.py  --out <out>
 | `lanl_probe.py` | Red team edges, new edges per day, flows and DNS around red team steps, SMB/RPC fan-out | `report_probe.md`, `new_edges_by_day.csv` |
 | `lanl_followup.py` | What `?` means per event type; how much of the main attacker host's activity the labels cover | `report_followup.md`, `attacker_host_by_day.csv` |
 | `lanl_lead_check.py` | Per-day timing of one source host, to rule out day-boundary artifacts | prints to the console |
+| `lanl_proc_check.py` | Process data per day and host; whether red team logons are followed by process starts on the target (any, under the same account, new to the host) compared with normal logons; size of the user-hour table for the model | `report_proc.md`, `proc_coverage_by_day.csv` |
 
-`convert` takes about 17 minutes on a laptop. Add a source later with `convert --only proc`.
+`convert` takes about 17 minutes on a laptop and skips proc. `convert --only proc` adds it and rewrites
+`report_convert.md`, so keep a copy of the earlier report first.
 
 ## Layout
 
@@ -62,5 +66,5 @@ Folders other than `checks/` and `reports/` are created when their first file go
 
 ## Reports
 
-`reports/data_check/` has the outputs of the run on 19–20 Nov 2026 over all 58 days.
-The findings are summarised as rounds 1–9 of the iteration log in the project plan.
+`reports/data_check/` has the outputs of the runs on 19–21 Nov 2026 over all 58 days.
+The findings are summarised as rounds 1–10 of the iteration log in the project plan.
